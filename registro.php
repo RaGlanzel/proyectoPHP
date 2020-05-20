@@ -9,7 +9,7 @@ if(isset($_POST)){
     
     //array de errores
     $errores = Array();
-    
+    //validar datos antes de guardarlos en la base de datos
     if(!empty($nombre) && !is_numeric($nombre) && !preg_match("/[0-9]/", $nombre)){
         $nombre_validado = true;
     }else{
@@ -21,7 +21,7 @@ if(isset($_POST)){
         $apellidos_validado = true;
     }else{
         $apellidos_validado = false;
-        $errores['apellidos'] = "Los apellidos son validos";
+        $errores['apellidos'] = "Los apellidos no son validos";
     }
     
     if(!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)){
