@@ -3,10 +3,10 @@
 if(isset($_POST)){
     require_once 'includes/conexion.php';
 session_start();
-    $nombre = isset($_POST['Nombre']) ? $_POST['Nombre'] : false;
-    $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : false;
-    $email = isset($_POST['email']) ? $_POST['email'] : false;
-    $password = isset($_POST['password']) ? $_POST['password'] : false;  
+    $nombre = isset($_POST['Nombre']) ? mysqli_real_escape_string($db, $_POST['Nombre']) : false;
+    $apellidos = isset($_POST['apellidos']) ? mysqli_real_escape_string($db,$_POST['apellidos']) : false;
+    $email = isset($_POST['email']) ? mysqli_real_escape_string($db, trim($_POST['email'])) : false;
+    $password = isset($_POST['password']) ? mysqli_real_escape_string($db,$_POST['password']) : false;  
     
     //array de errores
     $errores = Array();
