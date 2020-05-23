@@ -15,19 +15,25 @@ if(isset($_POST)){
         $usuario = mysqli_fetch_assoc($login);
 
         //comprobar la contraseña / cifrar
-    $verify = password_verify($password, $usuario['password']);
+        $verify = password_verify($password, $usuario['password']);
     if($verify){
 //utilizar una sesion para guardar  los datos del usuario logueado
-        
+        $_SESSION['usuario'] = $usuario;
+        if(isset($_SESSION['error_login'])){
+            session_unset($_SESSION['error_login']);
+        }
     }else{
-//si algo falla enviar una sesion con el fallo
+        //si algo falla enviar una sesion con el fallo
+        $_SESSION['error_login'] = "Nombre de usuario o contraseña incorrecta";
     }
 
+    }else{
+        $_SESSION['error_login'] = "Nombre de usuario o contraseña incorrecta"; 
     }
 
 
 }
-
+header('Location: index.php');
 
 
 
