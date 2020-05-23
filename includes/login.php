@@ -1,6 +1,6 @@
 <?php
 //iniciar la sesion y la conxion a la base de datos
-require_once 'includes/conexion.php';
+require_once 'conexion.php';
 
 
 //recoger datos del formulario
