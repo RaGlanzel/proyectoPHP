@@ -141,9 +141,22 @@ input[type='submit'],
     background: #007ee5;
     border: 1px solid #156785;
     cursor: pointer;
-
-
-
+}
+.boton{
+    width: 130px;
+    text-align: center;
+}
+.boton-naranja{
+    background: orange;
+    border-color: #bd7d08;
+}
+.boton-verder{
+    background: #21b921;
+    border-color: green;
+}
+.boton-rojo{
+    background: red;
+    border-color: black;
 }
 .principal{
     float: left;
@@ -204,4 +217,9 @@ input[type='submit'],
     height: auto;
     padding: 15px;
     text-align: center;
+}
+.fecha{
+    color: #4e4e4e;
+    margin-top: 5px;
+    font-size: 14px;
 }
