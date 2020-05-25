@@ -9,9 +9,11 @@
     <form action="guardar-entrada.php" method="post">
         <label for="titulo">Nombre de Categoría</label>
         <input type="text" name="titulo"/>
+        <?php echo isset($_SESSION['errores_entradas']) ? mostrarError($_SESSION['errores_entradas'], 'titulo') : ''; ?>
 
         <label for="descripcion">Descripción</label>
         <textarea name="descripcion"></textarea>
+        <?php echo isset($_SESSION['errores_entradas']) ? mostrarError($_SESSION['errores_entradas'], 'descripcion') : ''; ?>
 
         <label for="categoria">Categoría</label>
         <select name="categoria">
@@ -27,11 +29,13 @@
             endwhile;
             endif;
             ?>
-        </select>
+            </select>
+        <?php echo isset($_SESSION['errores_entradas']) ? mostrarError($_SESSION['errores_entradas'], 'categoria') : ''; ?>
 
         <input type="submit" value="Guardar"/>
 
     </form>
+    <?php borrarErrores();?>
 </div>
 
 
