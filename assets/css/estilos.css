@@ -143,6 +143,7 @@ input[type='submit'],
     cursor: pointer;
 }
 .boton{
+    color: white !important;
     width: 130px;
     text-align: center;
 }
