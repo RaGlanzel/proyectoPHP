@@ -37,8 +37,9 @@ if (isset($_POST)) {
 
 
     if (count($errores) == 0) {
-        $guardar_usuario = true;
         $usuario = $_SESSION['usuario'];
+        $guardar_usuario = true;
+        
 
         //comprobar si el email ya existe
         $sql = "SELECT id, email FROM usuarios WHERE email = '$email'";
@@ -47,6 +48,7 @@ if (isset($_POST)) {
        
         if ($isset_user['id'] == $usuario['id'] || empty($isset_user)) {
             //actualizar el usuario en la base de datos
+            
             $sql = "UPDATE usuarios SET " .
                     "nombre = '$nombre', " .
                     "apellidos = '$apellidos', " .
@@ -63,10 +65,10 @@ if (isset($_POST)) {
                 $_SESSION['errores']['general'] = "Fallo al actualizar datos del usuario!!";
             }
         } else {
-            $_SESSION['errores'] = $errores;
+            $_SESSION['errores']['general'] = "El usuario ya existe";
         }
     } else {
-        $_SESSION['errores']['general'] = "El usuario ya existe";
+        $_SESSION['errores'] = $errores;
     }
 //    var_dump($errores);
 }header('Location: mis-datos.php');
