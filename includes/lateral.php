@@ -2,6 +2,20 @@
 
 
 <aside id="sidebar">
+    <div id="buscador" class="bloque">
+        <h3>Buscar</h3>
+        <?php if(isset($_SESSION['error_login'])): ?>
+<div class="alerta alerta-error">
+    <?=$_SESSION['error_login']; ?>
+</div>
+<?php endif; ?>
+        <form method="post" action="buscar.php">
+            
+            <input type="text" name="busqueda"/>
+            
+            <input type="submit" name="submit" value="Buscar"/>
+        </form>
+    </div>
 <?php if(isset($_SESSION['usuario'])): ?>
 <div id="login" class="bloque">
     <h3><?=$_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellidos']; ?></h3>
@@ -30,7 +44,7 @@
             <input type="submit" name="submit" value="Entrar"/>
         </form>
     </div>
-    <div id="login" class="bloque">
+    <div id="register" class="bloque">
          <?php //if (isset($_SESSION['errores'])): ?>
             <?php //var_dump($_SESSION['errores']); ?>
         <?php //endif; ?>
