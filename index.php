@@ -3,11 +3,11 @@
 
 <div class="principal">
     <h1>Ultimas entradas</h1>
-    <?php $entradas = conseguirUltimasEntradas($db);
+    <?php $entradas = conseguirEntradas($db, true, null, null);
     if(!empty($entradas)):
         while ($entrada = mysqli_fetch_assoc($entradas)):
       ?>
-    <a href="">
+    <a href="entrada.php?id=<?=$entrada['id']?>">
         <article class="entradas">
             <h2><?=$entrada['titulo']?></h2>
             <span class='fecha'><?=$entrada['Categoria'].' | '.$entrada['fecha']?></span>
@@ -20,7 +20,7 @@
     ?>
     
     <div id="ver-todas">
-        <a href="">Ver todas la entradas</a>
+        <a href="entradas.php">Ver todas la entradas</a>
     </div>
 </div>
 
@@ -29,5 +29,3 @@
 
 <?php require_once 'includes/pie.php'; ?>
 
-</body>
-</html>
